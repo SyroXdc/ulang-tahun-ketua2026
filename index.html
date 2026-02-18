@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ucapan Spesial 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(45deg,#ff758c,#ff7eb3,#a18cd1,#fbc2eb);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+    text-align:center;
+    overflow-x:hidden;
+    overflow-y:auto;
+    color:white;
+}
+@keyframes gradientBG{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.section{
+    display:none;
+    padding:60px 20px;
+    animation:fadeIn .8s ease;
+    min-height:100vh;
+    box-sizing:border-box;
+}
+.active{display:block;}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1{font-size:26px;font-weight:700;margin-bottom:20px;}
+p{font-size:18px;line-height:1.6;}
+
+button{
+    padding:12px 28px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+    background:white;
+    color:#ff4b7d;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+button:hover{
+    background:#ff4b7d;
+    color:white;
+    transform:scale(1.1);
+}
+
+/* PAGE 3 khusus bisa scroll */
+#page3{
+    overflow-y:auto;
+    padding-bottom:120px;
+}
+
+/* Envelope */
+.envelope-container{
+    position:relative;
+    width:170px;
+    height:130px;
+    margin:70px auto;
+    perspective:800px;
+}
+.envelope{width:100%;height:100%;position:absolute;transition:1s;}
+.envelope-front{
+    width:100%;height:100%;
+    background:#ff4b7d;
+    clip-path:polygon(0 0,100% 0,50% 50%);
+    transform-origin:top;
+    transition:1s;
+}
+.envelope-back{
+    width:100%;height:100%;
+    background:#ff7eb3;
+    border-radius:8px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+.envelope.open .envelope-front{transform:rotateX(-180deg);}
+
+/* Progress */
+.progressContainer{
+    width:80%;height:12px;
+    background:rgba(255,255,255,.3);
+    margin:20px auto;
+    border-radius:6px;
+    overflow:hidden;
+}
+.progressBar{
+    width:0%;height:100%;
+    background:white;
+    transition:width 1s linear;
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear forwards;
+}
+@keyframes fall{
+    to{transform:translateY(100vh);opacity:0;}
+}
+
+/* Confetti */
+.confetti{
+    position:fixed;
+    width:8px;height:8px;
+    border-radius:50%;
+    top:-10px;
+}
+
+/* Balloon */
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    font-size:30px;
+    animation:rise 6s linear forwards;
+}
+@keyframes rise{
+    to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="section active">
+    <div class="envelope-container">
+        <div class="envelope" id="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-front"></div>
+        </div>
+    </div>
+    <h1>Ucapan sederhana dari akuuu 💌</h1>
+    <button onclick="openEnvelope()">BUKA</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="section">
+    <h1>Udah siap jadi pacar aku?😳</h1>
+    <button onclick="nextPage(3)">Iya 💖</button>
+    <button id="noBtn">belum 😝</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="section">
+    <h1 id="responseText"></h1>
+    <p id="typingText"></p>
+    <div class="progressContainer">
+        <div class="progressBar" id="progressBar"></div>
+    </div>
+    <button id="nextBtn1" style="display:none;" onclick="nextPage(4)">Lanjut ✨</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="section">
+    <h1>Selamat ulang tahunnn yaaa Kesayanganku 🎂</h1>
+    <p>
+    Semoga panjang umur, sehat selalu, makin sukses,tetap konsisten dalam hal yang baik<br><br>
+    Ketua, di hari ulang tahun ini aku mungkin belum bisa ngasih yang terbaik, 
+    tapi aku berharap ketua tau kalau aku sebegitu sayangnya sama ketua. 
+    Aku selalu bangga bisa sedekat ini. 
+    Aku gatau apa hal istimewa yang Allah berikan buat aku bisa ketemu ketua, 
+    sampai sampai aku merasa takut ini hanya contoh wanita yang aku inginkan yang Allah perlihatkan. 
+    Aku yang tadinya tidak pernah berharap, sekarang malah justru ada harapan. 
+    Semoga ketua bukan contoh wanita yang aku mau yang Allah tunjukkan, 
+    semoga Allah benar benar mempertunjukkan bahwa ini adalah calonku yang harus aku jaga sedemikian rupa. 
+    Yang harus aku jaga dari marahnya, sakit hatinya, ragunya dan rasa curiganya.
+    Aku selalu menerima ketua seutuhnya, dari rasa trauma yang ketua rasain,
+    dan maafin aku jika nanti ada sikap ku yang ga bikin ketua nyaman, atau candaan ku yang kelewatan. 
+    jangan pernah takut salah dalam ngatur aku yaaa sayangkuu, aku pasti nurut. 
+    karena aku tau itu baik buat aku juga bikin perasaan kamu tenang. 💖
+    </p>
+    <button onclick="nextPage(5)">Terakhir 💕</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="section">
+    <h1>I love youuuu💞</h1>
+</div>
+
+<audio id="music" preload="auto" loop playsinline>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let tidakCount=0;
+const music=document.getElementById("music");
+
+/* PAGE SWITCH */
+function nextPage(n){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById('page'+n).classList.add('active');
+    window.scrollTo(0,0);
+
+    if(n===3){
+        const text=document.getElementById("responseText");
+        text.textContent = tidakCount>0 ?
+        "Yahh kok nggak sayang sih 🥺" :
+        "Yeeaaayyyy aku seneng bangettt 😍🎉";
+        startCountdown();
+    }
+
+    if(n===5){
+        startHearts();
+        startConfetti();
+        startBalloons();
+        stopMusic();
+    }
+}
+
+/* OPEN ENVELOPE */
+function openEnvelope(){
+    const envelope = document.getElementById("envelope");
+    envelope.classList.add("open");
+
+    music.volume = 0;
+    music.currentTime = 0;
+    music.play().then(() => {
+        let vol=0;
+        const fade = setInterval(()=>{
+            if(vol<0.6){
+                vol +=0.02;
+                music.volume = vol;
+            } else clearInterval(fade);
+        },200);
+    }).catch(()=>{});
+
+    setTimeout(()=>nextPage(2),1000);
+}
+
+/* STOP MUSIC */
+function stopMusic(){
+    let volume=music.volume;
+    const fade=setInterval(()=>{
+        if(volume>0.02){
+            volume-=0.02;
+            music.volume=volume;
+        } else{
+            clearInterval(fade);
+            music.pause();
+        }
+    },200);
+}
+
+/* COUNTDOWN */
+function startCountdown(){
+    const text="Tunggu yaaa ada sesuatu buat kamu 💝";
+    const el=document.getElementById("typingText");
+    const bar=document.getElementById("progressBar");
+    const btn=document.getElementById("nextBtn1");
+
+    el.textContent="";
+    let i=0;
+    const typing=setInterval(()=>{
+        el.textContent+=text[i];
+        i++;
+        if(i>=text.length) clearInterval(typing);
+    },50);
+
+    let time=10;
+    bar.style.width="0%";
+    btn.style.display="none";
+
+    const countdown=setInterval(()=>{
+        time--;
+        bar.style.width=((10-time)/10*100)+"%";
+        if(time<=0){
+            clearInterval(countdown);
+            btn.style.display="inline-block";
+        }
+    },1000);
+}
+
+/* TOMBOL BELUM GERAK SAAT DIKLIK */
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("click",()=>{
+    tidakCount++;
+
+    noBtn.style.position="absolute";
+    noBtn.style.transition="0.2s";
+    noBtn.style.transform="scale(1.1)";
+    noBtn.style.left=Math.random()*80+"vw";
+    noBtn.style.top=Math.random()*80+"vh";
+
+    setTimeout(()=>{
+        noBtn.style.transform="scale(1)";
+    },200);
+});
+
+/* HEARTS */
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+    },300);
+}
+
+/* CONFETTI */
+function startConfetti(){
+    setInterval(()=>{
+        const c=document.createElement("div");
+        c.classList.add("confetti");
+        c.style.left=Math.random()*100+"vw";
+        c.style.backgroundColor=`hsl(${Math.random()*360},100%,70%)`;
+        document.body.appendChild(c);
+        c.animate(
+            [
+                {transform:'translateY(0) rotate(0deg)'},
+                {transform:`translateY(100vh) rotate(${Math.random()*360}deg)`}
+            ],
+            {
+                duration:Math.random()*3000+2000,
+                iterations:1,
+                easing:'linear'
+            }
+        );
+        setTimeout(()=>c.remove(),5000);
+    },200);
+}
+
+/* BALLOON */
+function startBalloons(){
+    setInterval(()=>{
+        const b=document.createElement("div");
+        b.classList.add("balloon");
+        b.textContent="🎈";
+        b.style.left=Math.random()*100+"vw";
+        document.body.appendChild(b);
+        setTimeout(()=>b.remove(),6000);
+    },800);
+}
+</script>
+
+</body>
+</html>
