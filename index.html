@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ucapan Spesial 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(45deg,#ff758c,#ff7eb3,#a18cd1,#fbc2eb);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+    text-align:center;
+    overflow-x:hidden;
+    overflow-y:auto;
+    color:white;
+}
+@keyframes gradientBG{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.section{
+    display:none;
+    padding:60px 20px;
+    animation:fadeIn .8s ease;
+    min-height:100vh;
+    box-sizing:border-box;
+}
+.active{display:block;}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1{font-size:26px;font-weight:700;margin-bottom:20px;}
+p{font-size:18px;line-height:1.6;}
+
+button{
+    padding:12px 28px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+    background:white;
+    color:#ff4b7d;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+button:hover{
+    background:#ff4b7d;
+    color:white;
+    transform:scale(1.1);
+}
+
+input{
+    padding:12px 20px;
+    border-radius:30px;
+    border:none;
+    width:80%;
+    max-width:300px;
+    font-size:16px;
+    text-align:center;
+}
+
+.progressContainer{
+    width:80%;height:12px;
+    background:rgba(255,255,255,.3);
+    margin:20px auto;
+    border-radius:6px;
+    overflow:hidden;
+}
+.progressBar{
+    width:0%;height:100%;
+    background:white;
+    transition:width 1s linear;
+}
+
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear forwards;
+}
+@keyframes fall{
+    to{transform:translateY(100vh);opacity:0;}
+}
+
+.confetti{
+    position:fixed;
+    width:8px;height:8px;
+    border-radius:50%;
+    top:-10px;
+}
+
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    font-size:30px;
+    animation:rise 6s linear forwards;
+}
+@keyframes rise{
+    to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="section active">
+    <h1>Ucapan sederhana dari akuuu 💌</h1>
+    <button onclick="nextPage(2)">Buka 💖</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="section">
+    <h1>Udah siap jadi pacar aku? 😳</h1>
+    <input type="text" id="jawabanInput" placeholder="Ketik: mau / tidak / gamau">
+    <br><br>
+    <button onclick="kirimJawaban()">Kirim 💌</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="section">
+    <h1 id="responseText"></h1>
+    <p id="typingText"></p>
+    <div class="progressContainer">
+        <div class="progressBar" id="progressBar"></div>
+    </div>
+    <button id="nextBtn1" style="display:none;" onclick="nextPage(4)">Lanjut ✨</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="section">
+    <h1>Selamat ulang tahunnn yaaa Kesayanganku 🎂</h1>
+    <p>
+    Semoga panjang umur, sehat selalu, makin sukses,
+    tetap konsisten dalam hal yang baik.
+    Aku sayang kamu banget 
+    Halo orang yang sangat aku sayangiiiii, ucapan ini mungkin akan lebih relate
+kalau kamu langsung menekan tombol iya. Sayangkuuu, aku sebenarnya agak bingung
+mau ngasih kata kata apa, tapi yang aku mengerti sampai di titik ini. aku baru sadar bahwa ternyata 
+aku setakut itu kamu pergi, bohong rasanya kalau aku akan mengikhlaskan begitu aja, munafik rasanya kalau aku hanya berdiam saja jika kamu tiba tiba pergi.
+Kamu adalah sosok wanita yang selalu aku harapkan datang di kehidupanku ini. Sayangggkuuu, kamu jangan pernah takut lagi yaa
+jangan takut meng ekspresikan perasaan kamu didepan aku, jangan takut berkata tidak suka dalam hal yang membuat perasaan mu ragu
+jangan takut untuk bilang bahwa kamu takut kehilangan sesuatu. Jangan selalu membohongi diri sendiri kalau kamu itu kuat, jangan selalu membohongi diri sendiri 
+kalau kamu itu bisa. Sekarang udah ada aku, ngeluh selama mungkin yang kamu mau. Kamu mungkin takut ini cuma sementara, tapi aku yang selalu begini saja bingung, aku cuma jadi diri sendiri 
+aku cuma ingin menjadi versi terbaik yang kamu tau. Tetap sehatt ya sayanggkuu, kamu harus tau ada seseorang yang menjadikan kamu sebagai pasangan masa depan nya, kamu harus tau
+bahwa ada seseorang yang berharap kamulah ibu dari anak anak orang itu, orang itu ya aku. aku gatau kenapa aku se ingin itu sama kamu. Tapi yang aku rasain, tenang gitu rasanya,
+karena ketika kamu marah atau kesel, aku ga pernah ada perasaan yang sama, aku hanya seperti menikmati ini semua. Mungkin hal yang aku ga suka itu tentang kamu merasa kamu itu ribet. 
+Jujur ya sayanggkuuu, kamu itu adalah wanita yang ga ribet sama sekali, tapi justru aku pengen kamu ribetin aku lebih lagi. Aku paling seneng diribetin kenapa?, karena disitu aku ngerasa 
+aku ada berguna nya, soalnya kamu itu apa apa bisa sendiri. Aku jadi ngerasa kayak apa ya, aku cuma kehilangan rasa percaya diriku aja kalau kamu ga ngeribetin aku. 
+di titik ini jawaban kamu semuanya bikin aku seneng, mau udah siap atau belum. seenggaknya gada kata gamau gitu, tapi kalau langsung iya, itu lebih bikin aku seneng. Karena kayak
+akhirnya yaa aku sama dia resmi gini, kapan lagi gitu punya pacar cantik, pinter, mandiri,lucu dan cuma punya aku, dan maaf yaa sayanggkuu kalau ulang tahun ini se sederhana itu.💖
+    </p>
+    <button onclick="nextPage(5)">Terakhir 💕</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="section">
+    <h1>I love youuuu 💞</h1>
+</div>
+
+<audio id="music" preload="auto" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const token = "8209638005:AAH13fuv3WGcH9I8d9UbKmtwrLXd8g8gDH8";
+const chat_id = "7799715346";
+
+let tidakCount = 0;
+let sudahTidak = false;
+const music=document.getElementById("music");
+
+function nextPage(n){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById('page'+n).classList.add('active');
+    window.scrollTo(0,0);
+
+    if(n===3){
+        const text=document.getElementById("responseText");
+        text.textContent = tidakCount>0 ?
+        "yahh belum siap, tapi gapapa sayangg 🥺" :
+        "seriusann iniii aku jadi pacar kamuuu?😍🎉";
+        startCountdown();
+    }
+
+    if(n===5){
+        startHearts();
+        startConfetti();
+        startBalloons();
+    }
+}
+
+function kirimJawaban(){
+    const input = document.getElementById("jawabanInput");
+    const jawaban = input.value.trim().toLowerCase();
+
+    if(jawaban==="") return alert("Jawab dulu dong 😝");
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            chat_id:chat_id,
+            text:"Jawaban doi: "+jawaban
+        })
+    });
+
+    if(jawaban==="mau"){
+        tidakCount=0;
+        nextPage(3);
+    }
+    else if(jawaban==="tidak" || jawaban==="gamau"){
+        if(!sudahTidak){
+            tidakCount=1;
+            sudahTidak=true;
+        }
+        nextPage(3);
+    }
+    else{
+        alert("Jawabnya mau / tidak / gamau yaa 😝");
+    }
+}
+
+function startCountdown(){
+    const text="Tunggu yaaa sayanggkuu 💝";
+    const el=document.getElementById("typingText");
+    const bar=document.getElementById("progressBar");
+    const btn=document.getElementById("nextBtn1");
+
+    el.textContent="";
+    let i=0;
+    const typing=setInterval(()=>{
+        el.textContent+=text[i];
+        i++;
+        if(i>=text.length) clearInterval(typing);
+    },50);
+
+    let time=5;
+    bar.style.width="0%";
+    btn.style.display="none";
+
+    const countdown=setInterval(()=>{
+        time--;
+        bar.style.width=((5-time)/5*100)+"%";
+        if(time<=0){
+            clearInterval(countdown);
+            btn.style.display="inline-block";
+        }
+    },1000);
+}
+
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+    },300);
+}
+
+function startConfetti(){
+    setInterval(()=>{
+        const c=document.createElement("div");
+        c.classList.add("confetti");
+        c.style.left=Math.random()*100+"vw";
+        c.style.backgroundColor=`hsl(${Math.random()*360},100%,70%)`;
+        document.body.appendChild(c);
+        c.animate(
+            [
+                {transform:'translateY(0)'},
+                {transform:'translateY(100vh)'}
+            ],
+            {
+                duration:Math.random()*3000+2000,
+                iterations:1,
+                easing:'linear'
+            }
+        );
+        setTimeout(()=>c.remove(),5000);
+    },200);
+}
+
+function startBalloons(){
+    setInterval(()=>{
+        const b=document.createElement("div");
+        b.classList.add("balloon");
+        b.textContent="🎈";
+        b.style.left=Math.random()*100+"vw";
+        document.body.appendChild(b);
+        setTimeout(()=>b.remove(),6000);
+    },800);
+}
+</script>
+
+</body>
+</html>
