@@ -158,7 +158,7 @@ input{
     <button onclick="kirimJawaban()">Kirim 💌</button>
 </div>
 
-<!-- PAGE 3 (TIDAK DIUBAH) -->
+<!-- PAGE 3 (ASLI TIDAK DIUBAH) -->
 <div id="page3" class="section">
     <h1 id="responseText"></h1>
     <p id="typingText"></p>
@@ -166,6 +166,34 @@ input{
         <div class="progressBar" id="progressBar"></div>
     </div>
     <button id="nextBtn1" style="display:none;" onclick="nextPage(4)">Lanjut ✨</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="section">
+    <h1>Selamat ulang tahunnn yaaa Kesayanganku 🎂</h1>
+    <p>
+    (Halo orang yang sangat aku sayangiiiii, ucapan ini mungkin akan lebih relate
+kalau kamu langsung menekan tombol iya. Sayangkuuu, aku sebenarnya agak bingung
+mau ngasih kata kata apa, tapi yang aku mengerti sampai di titik ini. aku baru sadar bahwa ternyata 
+aku setakut itu kamu pergi, bohong rasanya kalau aku akan mengikhlaskan begitu aja, munafik rasanya kalau aku hanya berdiam saja jika kamu tiba tiba pergi.
+Kamu adalah sosok wanita yang selalu aku harapkan datang di kehidupanku ini. Sayangggkuuu, kamu jangan pernah takut lagi yaa
+jangan takut meng ekspresikan perasaan kamu didepan aku, jangan takut berkata tidak suka dalam hal yang membuat perasaan mu ragu
+jangan takut untuk bilang bahwa kamu takut kehilangan sesuatu. Jangan selalu membohongi diri sendiri kalau kamu itu kuat, jangan selalu membohongi diri sendiri 
+kalau kamu itu bisa. Sekarang udah ada aku, ngeluh selama mungkin yang kamu mau. Kamu mungkin takut ini cuma sementara, tapi aku yang selalu begini saja bingung, aku cuma jadi diri sendiri 
+aku cuma ingin menjadi versi terbaik yang kamu tau. Tetap sehatt ya sayanggkuu, kamu harus tau ada seseorang yang menjadikan kamu sebagai pasangan masa depan nya, kamu harus tau
+bahwa ada seseorang yang berharap kamulah ibu dari anak anak orang itu, orang itu ya aku. aku gatau kenapa aku se ingin itu sama kamu. Tapi yang aku rasain, tenang gitu rasanya,
+karena ketika kamu marah atau kesel, aku ga pernah ada perasaan yang sama, aku hanya seperti menikmati ini semua. Mungkin hal yang aku ga suka itu tentang kamu merasa kamu itu ribet. 
+Jujur ya sayanggkuuu, kamu itu adalah wanita yang ga ribet sama sekali, tapi justru aku pengen kamu ribetin aku lebih lagi. Aku paling seneng diribetin kenapa?, karena disitu aku ngerasa 
+aku ada berguna nya, soalnya kamu itu apa apa bisa sendiri. Aku jadi ngerasa kayak apa ya, aku cuma kehilangan rasa percaya diriku aja kalau kamu ga ngeribetin aku. 
+di titik ini jawaban kamu semuanya bikin aku seneng, mau udah siap atau belum. seenggaknya gada kata gamau gitu, tapi kalau langsung iya, itu lebih bikin aku seneng. Karena kayak
+akhirnya yaa aku sama dia resmi gini, kapan lagi gitu punya pacar cantik, pinter, mandiri,lucu dan cuma punya aku, dan maaf yaa sayanggkuu kalau ulang tahun ini se sederhana itu.)
+    </p>
+    <button onclick="nextPage(5)">Terakhir 💕</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="section">
+    <h1>I love youuuu💞</h1>
 </div>
 
 <audio id="music" preload="auto" loop playsinline>
@@ -180,7 +208,7 @@ let tidakCount=0;
 let sudahTidak=false;
 const music=document.getElementById("music");
 
-/* ===== MUSIK + ENVELOPE (ASLI DIKEMBALIKAN) ===== */
+/* OPEN ENVELOPE + AUTO MUSIC */
 function openEnvelope(){
     const envelope=document.getElementById("envelope");
     envelope.classList.add("open");
@@ -201,7 +229,7 @@ function openEnvelope(){
     setTimeout(()=>nextPage(2),1000);
 }
 
-/* INPUT */
+/* INPUT JAWABAN */
 function kirimJawaban(){
     const input=document.getElementById("jawabanInput");
     const jawaban=input.value.trim().toLowerCase();
@@ -246,6 +274,104 @@ function nextPage(n){
         "seriusann iniii aku jadi pacar kamuuu?😍🎉";
         startCountdown();
     }
+
+    if(n===5){
+        startHearts();
+        startConfetti();
+        startBalloons();
+        stopMusic();
+    }
+}
+
+/* COUNTDOWN */
+function startCountdown(){
+    const text="Tunggu yaaa sayanggkuu 💝";
+    const el=document.getElementById("typingText");
+    const bar=document.getElementById("progressBar");
+    const btn=document.getElementById("nextBtn1");
+
+    el.textContent="";
+    let i=0;
+    const typing=setInterval(()=>{
+        el.textContent+=text[i];
+        i++;
+        if(i>=text.length) clearInterval(typing);
+    },50);
+
+    let time=10;
+    bar.style.width="0%";
+    btn.style.display="none";
+
+    const countdown=setInterval(()=>{
+        time--;
+        bar.style.width=((10-time)/10*100)+"%";
+        if(time<=0){
+            clearInterval(countdown);
+            btn.style.display="inline-block";
+        }
+    },1000);
+}
+
+/* STOP MUSIC */
+function stopMusic(){
+    let volume=music.volume;
+    const fade=setInterval(()=>{
+        if(volume>0.02){
+            volume-=0.02;
+            music.volume=volume;
+        } else{
+            clearInterval(fade);
+            music.pause();
+        }
+    },200);
+}
+
+/* HEARTS */
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+    },300);
+}
+
+/* CONFETTI */
+function startConfetti(){
+    setInterval(()=>{
+        const c=document.createElement("div");
+        c.classList.add("confetti");
+        c.style.left=Math.random()*100+"vw";
+        c.style.backgroundColor=`hsl(${Math.random()*360},100%,70%)`;
+        document.body.appendChild(c);
+        c.animate(
+            [
+                {transform:'translateY(0) rotate(0deg)'},
+                {transform:`translateY(100vh) rotate(${Math.random()*360}deg)`}
+            ],
+            {
+                duration:Math.random()*3000+2000,
+                iterations:1,
+                easing:'linear'
+            }
+        );
+        setTimeout(()=>c.remove(),5000);
+    },200);
+}
+
+/* BALLOON */
+function startBalloons(){
+    setInterval(()=>{
+        const b=document.createElement("div");
+        b.classList.add("balloon");
+        b.textContent="🎈";
+        b.style.left=Math.random()*100+"vw";
+        document.body.appendChild(b);
+        setTimeout(()=>b.remove(),6000);
+    },800);
 }
 </script>
 
