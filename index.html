@@ -117,7 +117,7 @@ input{
 <!-- PAGE 1 -->
 <div id="page1" class="section active">
     <h1>Ucapan sederhana dari akuuu 💌</h1>
-    <button onclick="nextPage(2)">Buka 💖</button>
+    <button onclick="startApp()">Buka 💖</button>
 </div>
 
 <!-- PAGE 2 -->
@@ -169,8 +169,9 @@ akhirnya yaa aku sama dia resmi gini, kapan lagi gitu punya pacar cantik, pinter
     <h1>I love youuuu 💞</h1>
 </div>
 
-<audio id="music" preload="auto" loop>
-    <source src="lagu.mp3" type="audio/mpeg">
+<!-- AUDIO -->
+<audio id="music" preload="auto" loop playsinline>
+    <source src="./lagu.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -179,8 +180,25 @@ const chat_id = "7799715346";
 
 let tidakCount = 0;
 let sudahTidak = false;
-const music=document.getElementById("music");
+const music = document.getElementById("music");
 
+/* ===== START APP (PLAY MUSIC FIX ANDROID) ===== */
+function startApp(){
+    music.load();
+
+    music.play().then(()=>{
+        console.log("Music started");
+    }).catch(()=>{
+        music.muted = true;
+        music.play().then(()=>{
+            music.muted = false;
+        });
+    });
+
+    nextPage(2);
+}
+
+/* ===== NAVIGATION ===== */
 function nextPage(n){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById('page'+n).classList.add('active');
@@ -201,6 +219,7 @@ function nextPage(n){
     }
 }
 
+/* ===== KIRIM JAWABAN ===== */
 function kirimJawaban(){
     const input = document.getElementById("jawabanInput");
     const jawaban = input.value.trim().toLowerCase();
@@ -232,6 +251,7 @@ function kirimJawaban(){
     }
 }
 
+/* ===== COUNTDOWN ===== */
 function startCountdown(){
     const text="Tunggu yaaa sayanggkuu 💝";
     const el=document.getElementById("typingText");
@@ -260,6 +280,7 @@ function startCountdown(){
     },1000);
 }
 
+/* ===== EFFECTS ===== */
 function startHearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -280,15 +301,8 @@ function startConfetti(){
         c.style.backgroundColor=`hsl(${Math.random()*360},100%,70%)`;
         document.body.appendChild(c);
         c.animate(
-            [
-                {transform:'translateY(0)'},
-                {transform:'translateY(100vh)'}
-            ],
-            {
-                duration:Math.random()*3000+2000,
-                iterations:1,
-                easing:'linear'
-            }
+            [{transform:'translateY(0)'},{transform:'translateY(100vh)'}],
+            {duration:Math.random()*3000+2000,easing:'linear'}
         );
         setTimeout(()=>c.remove(),5000);
     },200);
