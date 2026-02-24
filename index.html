@@ -15,7 +15,6 @@ body{
     animation:gradientBG 12s ease infinite;
     text-align:center;
     overflow-x:hidden;
-    overflow-y:auto;
     color:white;
 }
 @keyframes gradientBG{
@@ -39,7 +38,7 @@ body{
 }
 
 h1{font-size:26px;font-weight:700;margin-bottom:20px;}
-p{font-size:18px;line-height:1.6;}
+p{font-size:18px;line-height:1.8;white-space:pre-line;}
 
 button{
     padding:12px 28px;
@@ -141,27 +140,8 @@ input{
 <!-- PAGE 4 -->
 <div id="page4" class="section">
     <h1>Selamat ulang tahunnn yaaa Kesayanganku 🎂</h1>
-    <p>
-    Semoga panjang umur, sehat selalu, makin sukses,
-    tetap konsisten dalam hal yang baik.
-    Aku sayang kamu banget 
-    Halo orang yang sangat aku sayangiiiii, ucapan ini mungkin akan lebih relate
-kalau kamu langsung menjawab mau. Sayangkuuu, aku sebenarnya agak bingung
-mau ngasih kata kata apa, tapi yang aku mengerti sampai di titik ini. kamu itu udah sangat hebat, sangat kuat dan juga paling aku sayanggg. aku baru sadar bahwa ternyata 
-aku setakut itu kamu pergi, bohong rasanya kalau aku akan mengikhlaskan begitu aja, munafik rasanya kalau aku hanya berdiam saja jika kamu tiba tiba pergi.
-Kamu adalah sosok wanita yang selalu aku harapkan datang di kehidupanku ini. Sayangggkuuu, kamu jangan pernah takut lagi yaa
-jangan takut meng ekspresikan perasaan kamu didepan aku, jangan takut berkata tidak suka dalam hal yang membuat perasaan mu ragu
-jangan takut untuk bilang bahwa kamu takut kehilangan sesuatu. Jangan selalu membohongi diri sendiri kalau kamu itu kuat, jangan selalu membohongi diri sendiri 
-kalau kamu itu bisa. Sekarang udah ada aku, ngeluh selama mungkin yang kamu mau. Kamu mungkin takut ini cuma sementara, tapi aku yang selalu begini saja bingung, aku cuma jadi diri sendiri 
-aku cuma ingin menjadi versi terbaik yang kamu tau. Tetap sehatt ya sayanggkuu, kamu harus tau ada seseorang yang menjadikan kamu sebagai pasangan masa depan nya, kamu harus tau
-bahwa ada seseorang yang berharap kamulah ibu dari anak anak orang itu, orang itu ya aku. aku gatau kenapa aku se ingin itu sama kamu. Tapi yang aku rasain, tenang gitu rasanya,
-karena ketika kamu marah atau kesel, aku ga pernah ada perasaan yang sama, aku hanya seperti menikmati ini semua. Mungkin hal yang aku ga suka itu tentang kamu merasa kamu itu ribet. 
-Jujur ya sayanggkuuu, kamu itu adalah wanita yang ga ribet sama sekali, tapi justru aku pengen kamu ribetin aku lebih lagi. Aku paling seneng diribetin kenapa?, karena disitu aku ngerasa 
-aku ada berguna nya, soalnya kamu itu apa apa bisa sendiri. Aku jadi ngerasa kayak apa ya, aku cuma kehilangan rasa percaya diriku aja kalau kamu ga ngeribetin aku. 
-di titik ini jawaban kamu semuanya bikin aku seneng, mau udah siap atau belum. seenggaknya gada kata gamau gitu, tapi kalau langsung iya, itu lebih bikin aku seneng. Karena kayak
-akhirnya yaa aku sama dia resmi gini, kapan lagi gitu punya pacar cantik, pinter, mandiri,lucu dan cuma punya aku, dan maaf yaa sayanggkuu kalau ulang tahun ini se sederhana itu.💖
-    </p>
-    <button onclick="nextPage(5)">Terakhir 💕</button>
+    <p id="longMessage"></p>
+    <button id="lastBtn" style="display:none;" onclick="nextPage(5)">Terakhir 💕</button>
 </div>
 
 <!-- PAGE 5 -->
@@ -169,7 +149,6 @@ akhirnya yaa aku sama dia resmi gini, kapan lagi gitu punya pacar cantik, pinter
     <h1>I love youuuu 💞</h1>
 </div>
 
-<!-- AUDIO -->
 <audio id="music" preload="auto" loop playsinline>
     <source src="./lagu.mp3" type="audio/mpeg">
 </audio>
@@ -182,23 +161,47 @@ let tidakCount = 0;
 let sudahTidak = false;
 const music = document.getElementById("music");
 
-/* ===== START APP (PLAY MUSIC FIX ANDROID) ===== */
+const longText = `Semoga panjang umur, sehat selalu, makin sukses,
+dan tetap konsisten dalam hal-hal baik yaa sayangku 💖
+
+Aku sayang kamu banget.
+
+Halo orang yang paling aku sayangiiiii…
+Jujur yaa, aku sempat bingung mau ngasih kata-kata apa.
+Tapi yang aku ngerti sampai di titik ini,
+kamu itu sudah sangat hebat, sangat kuat,
+dan tetap jadi orang yang paling aku sayanggg.
+
+Aku baru sadar… ternyata aku setakut itu kalau kamu pergi.
+Bohong rasanya kalau aku bilang bisa ikhlas begitu saja.
+
+Sekarang sudah ada aku.
+Ngeluh selama mungkin yang kamu mau.
+Cerita sebanyak yang kamu mau.
+Karena aku di sini bukan cuma buat senang-senang aja,
+tapi buat jadi tempat kamu pulang juga.
+
+Kamu harus tahu…
+ada seseorang yang menjadikan kamu sebagai pasangan masa depannya.
+Dan orang itu… ya aku.
+
+Aku nggak tahu kenapa aku bisa se-ingin itu sama kamu.
+Tapi yang aku rasain itu tenang.
+
+Dan maaf yaa sayangkuuu…
+kalau ulang tahun ini masih sederhana.
+
+Tapi perasaanku ke kamu nggak pernah sederhana 💖`;
+
 function startApp(){
     music.load();
-
-    music.play().then(()=>{
-        console.log("Music started");
-    }).catch(()=>{
+    music.play().catch(()=>{
         music.muted = true;
-        music.play().then(()=>{
-            music.muted = false;
-        });
+        music.play().then(()=>{ music.muted = false; });
     });
-
     nextPage(2);
 }
 
-/* ===== NAVIGATION ===== */
 function nextPage(n){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById('page'+n).classList.add('active');
@@ -212,6 +215,10 @@ function nextPage(n){
         startCountdown();
     }
 
+    if(n===4){
+        typeLongMessage();
+    }
+
     if(n===5){
         startHearts();
         startConfetti();
@@ -219,39 +226,26 @@ function nextPage(n){
     }
 }
 
-/* ===== KIRIM JAWABAN ===== */
 function kirimJawaban(){
     const input = document.getElementById("jawabanInput");
     const jawaban = input.value.trim().toLowerCase();
-
     if(jawaban==="") return alert("Jawab dulu dong 😝");
 
     fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
-            chat_id:chat_id,
-            text:"Jawaban doi: "+jawaban
-        })
+        body:JSON.stringify({chat_id:chat_id,text:"Jawaban doi: "+jawaban})
     });
 
     if(jawaban==="mau"){
         tidakCount=0;
         nextPage(3);
-    }
-    else if(jawaban==="tidak" || jawaban==="gamau"){
-        if(!sudahTidak){
-            tidakCount=1;
-            sudahTidak=true;
-        }
+    } else {
+        tidakCount=1;
         nextPage(3);
-    }
-    else{
-        alert("Jawabnya mau / tidak / gamau yaa 😝");
     }
 }
 
-/* ===== COUNTDOWN ===== */
 function startCountdown(){
     const text="Tunggu yaaa sayanggkuu 💝";
     const el=document.getElementById("typingText");
@@ -280,7 +274,23 @@ function startCountdown(){
     },1000);
 }
 
-/* ===== EFFECTS ===== */
+function typeLongMessage(){
+    const el = document.getElementById("longMessage");
+    const btn = document.getElementById("lastBtn");
+    el.textContent="";
+    btn.style.display="none";
+    let i=0;
+
+    const typing=setInterval(()=>{
+        el.textContent+=longText[i];
+        i++;
+        if(i>=longText.length){
+            clearInterval(typing);
+            btn.style.display="inline-block";
+        }
+    },35);
+}
+
 function startHearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -300,10 +310,8 @@ function startConfetti(){
         c.style.left=Math.random()*100+"vw";
         c.style.backgroundColor=`hsl(${Math.random()*360},100%,70%)`;
         document.body.appendChild(c);
-        c.animate(
-            [{transform:'translateY(0)'},{transform:'translateY(100vh)'}],
-            {duration:Math.random()*3000+2000,easing:'linear'}
-        );
+        c.animate([{transform:'translateY(0)'},{transform:'translateY(100vh)'}],
+        {duration:Math.random()*3000+2000,easing:'linear'});
         setTimeout(()=>c.remove(),5000);
     },200);
 }
@@ -321,4 +329,4 @@ function startBalloons(){
 </script>
 
 </body>
-</html>
+        </html>
