@@ -124,8 +124,15 @@ input{
 </head>
 
 <body>
+	
+	<div id="passwordScreen" class="section active">
+    <h1>Masukin Password Dulu yaa 🔐</h1>
+    <input type="password" id="passwordInput" placeholder="Masukkan password">
+    <br><br>
+    <button onclick="checkPassword()">Masuk 💕</button>
+</div>
 
-<div id="page1" class="section active">
+<div id="page1" class="section">
     <h1>Ucapan sederhana dari akuuu 💌</h1>
     <button onclick="startApp()">Buka 💖</button>
 </div>
@@ -161,6 +168,18 @@ input{
 </audio>
 
 <script>
+const correctPassword = "sayangaku"; // GANTI password di sini 💖
+
+function checkPassword(){
+    const input = document.getElementById("passwordInput").value;
+    
+    if(input === correctPassword){
+        document.getElementById("passwordScreen").classList.remove("active");
+        document.getElementById("page1").classList.add("active");
+    } else {
+        alert("Password salahh 😝 coba lagi yaa");
+    }
+}
 const token="8209638005:AAH13fuv3WGcH9I8d9UbKmtwrLXd8g8gDH8";
 const chat_id="7799715346";
 const music=document.getElementById("music");
@@ -335,4 +354,4 @@ function startBalloons(){
 </script>
 
 </body>
-</html>
+    </html>
